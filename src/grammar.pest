@@ -1,0 +1,10 @@
+markdown  = { "---\n" ~ line* ~ titleline ~ line* ~ catg ~ line* }
+line      = { ANY* ~ "\n" }
+word     = { ('a'..'z') | " " | "-" | ('0'..'9')}
+title     = { word+}
+titleline = { "title:" ~ " "* ~ title ~ "\n" }
+catg      = { catgmain ~ catgline+ }
+category  = { ('a'..'z')+ }
+catgmain  = { "categories: |\n" }
+catgline  = { " "+ ~ category }
+alpha     = { 'a'..'z' | 'A'..'Z' | "\n" }
